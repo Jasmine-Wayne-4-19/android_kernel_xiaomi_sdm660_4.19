@@ -853,4 +853,3 @@ void log_synx_error(s32 error_code, s32 synx_obj)
 		&synx_dev->synx_debug_head);
 	spin_unlock_bh(&synx_dev->synx_node_list_lock);
 }
-
