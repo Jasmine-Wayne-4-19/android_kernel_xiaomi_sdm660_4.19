@@ -561,7 +561,7 @@ static int qrtr_node_enqueue(struct qrtr_node *node, struct sk_buff *skb,
 		hdr->dst_port_id = cpu_to_le32(QRTR_PORT_CTRL);
 	} else {
 		hdr->dst_node_id = cpu_to_le32(to->sq_node);
-
+}
 	hdr->dst_port_id = cpu_to_le32(to->sq_port);
 	hdr->size = cpu_to_le32(len);
 	hdr->confirm_rx = !!confirm_rx;
