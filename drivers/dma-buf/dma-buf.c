@@ -144,7 +144,6 @@ static void dma_buf_release(struct dentry *dentry)
 
 	module_put(dmabuf->owner);
 	dmabuf_dent_put(dmabuf);
-	return 0;
 }
 
 static const struct dentry_operations dma_buf_dentry_ops = {
