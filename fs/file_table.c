@@ -332,7 +332,7 @@ void flush_delayed_fput_wait(void)
 	flush_delayed_work(&delayed_fput_work);
 }
 
-void fput_many(struct file *file, unsigned int refs)
+void fput(struct file *file)
 {
 	if (atomic_long_dec_and_test(&file->f_count)) {
 		struct task_struct *task = current;
@@ -351,11 +351,6 @@ void fput_many(struct file *file, unsigned int refs)
 		if (llist_add(&file->f_u.fu_llist, &delayed_fput_list))
 			schedule_delayed_work(&delayed_fput_work, 1);
 	}
-}
-
-void fput(struct file *file)
-{
-	fput_many(file, 1);
 }
 
 /*
