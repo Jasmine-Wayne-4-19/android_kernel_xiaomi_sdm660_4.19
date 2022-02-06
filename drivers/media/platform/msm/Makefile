@@ -15,4 +15,8 @@ ifdef CONFIG_MACH_XIAOMI_WHYRED
 obj-$(CONFIG_MSMB_CAMERA) += camera_v2-whyred/
 else
 obj-$(CONFIG_MSMB_CAMERA) += camera_v2/
+ifneq ($(CONFIG_MSMB_CAMERA_OSS),y)
+obj-$(CONFIG_MSMB_CAMERA) += camera_v2/
+else
+obj-$(CONFIG_MSMB_CAMERA) += camera_v2-oss/
 endif
